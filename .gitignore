@@ -2,7 +2,7 @@
 *.sqlite3
 .idea/
 __dev*/
-
+media/
 # Config folders
 .conf/
 

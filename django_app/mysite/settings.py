@@ -33,6 +33,10 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'member.backends.FacebookBackend',
 ]
+# Media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Media_root에 저장된 파일들에 접근할 때의 url
+MEDIA_URL = '/media/'
 
 # Email
 email_config = config['email']
