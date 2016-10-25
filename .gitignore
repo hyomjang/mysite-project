@@ -1,5 +1,10 @@
 # Project custom
 *.sqlite3
+.idea/
+__dev*/
+
+# Config folders
+.conf/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
