@@ -9,17 +9,19 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
+import json
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# os.path.join을 이용해서 해당 폴더의 경로를 지정해봅시다
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-
-
+# 설정파일 폴더
+CONF_DIR = os.path.join(BASE_DIR, '.conf')
+# json설정파일의 내용 불러오기
+config_file = open(os.path.join(CONF_DIR, 'settings_debug.json'))
+config = json.loads(config_file.read())
+config_file.close()
 # Static files
 STATICFILES_DIRS = [
     STATIC_DIR,
@@ -33,11 +35,12 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Email
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'fastcampus.2016@gmail.com'
-EMAIL_HOST_PASSWORD = 'fastcampus'
-EMAIL_USE_TLS = True
+email_config = config['email']
+EMAIL_HOST = email_config['EMAIL_HOST']
+EMAIL_PORT = email_config['EMAIL_HOST']
+EMAIL_HOST_USER = email_config['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = email_config['EMAIL_HOST_PASSWORD']
+EMAIL_USER_TLS = email_config['EMAIL_USER_TLS']
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
@@ -54,8 +57,9 @@ ALLOWED_HOSTS = []
 
 
 # Facebook
-FACEBOOK_APP_ID = '338774269808826'
-FACEBOOK_SECRET_CODE = 'b780a89551228b4c1015c529a7667722'
+facebook_config= config['facebook']
+FACEBOOK_APP_ID = facebook_config['FACEBOOK_APP_ID']
+FACEBOOK_SECRET_CODE = facebook_config['FACEBOOK_SECRET_CODE']
 
 
 # Application definition
@@ -67,7 +71,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-
     'blog',
     'member',
     'video',
