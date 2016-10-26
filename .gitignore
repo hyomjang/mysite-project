@@ -3,6 +3,11 @@
 .idea/
 __dev*/
 media/
+
+# ReadME File
+Django.md
+Python.md
+
 # Config folders
 .conf/
 

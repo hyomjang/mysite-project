@@ -22,6 +22,7 @@ CONF_DIR = os.path.join(BASE_DIR, '.conf')
 config_file = open(os.path.join(CONF_DIR, 'settings_debug.json'))
 config = json.loads(config_file.read())
 config_file.close()
+
 # Static files
 STATICFILES_DIRS = [
     STATIC_DIR,
@@ -47,7 +48,6 @@ EMAIL_HOST_PASSWORD = email_config['EMAIL_HOST_PASSWORD']
 EMAIL_USER_TLS = email_config['EMAIL_USER_TLS']
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -61,7 +61,7 @@ ALLOWED_HOSTS = []
 
 
 # Facebook
-facebook_config= config['facebook']
+facebook_config = config['facebook']
 FACEBOOK_APP_ID = facebook_config['FACEBOOK_APP_ID']
 FACEBOOK_SECRET_CODE = facebook_config['FACEBOOK_SECRET_CODE']
 
