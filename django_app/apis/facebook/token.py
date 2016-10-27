@@ -50,6 +50,7 @@ def get_access_token(code, redirect_url):
     return ACCESS_TOKEN
 
 
+
 def get_user_id_from_token(access_token):
     debug_info = debug_token(access_token)
     user_id = debug_info['data']['user_id']

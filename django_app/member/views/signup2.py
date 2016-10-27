@@ -10,6 +10,7 @@ def signup2(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
+            # valid
             email = form.cleaned_data['email']
             password1 = form.cleaned_data['password1']
             password2 = form.cleaned_data['password2']

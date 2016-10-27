@@ -27,3 +27,5 @@ def send_mail(subject, message, recipient_list=None):
 #
 # is_male = True
 # gender = 'male' if is_male else 'female'
+
+

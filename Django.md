@@ -363,3 +363,11 @@ SMTP, POP3서비스를 무료로 제공하는 서비스에 가입을 하면 될 
 
 
 ##DAY14
+
+#### auth_backend를 settings에 여러개로 설정할시
+* login 함수에 backend를 설정해주어야한다.
+	* login(request, user, backend=**'django.contrib.auth.backends.ModelBackend'**)
+ 
+#### auto_now.add  와 auto.add 의 차이
+* auto_now.add - 맨 처음 모델 생성 할 때 변동불가 created date
+* auto_now - 모델을 변경, 수정할때마다 날짜가 저장 modified date

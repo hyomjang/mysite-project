@@ -110,6 +110,8 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
+
+
 def comment_add(request, post_pk):
     """
     기능을 새로 만들고싶다
@@ -143,3 +145,4 @@ def comment_add(request, post_pk):
         )
         messages.success(request, '댓글을 달았습니다!')
         return redirect('blog:post_detail', pk=post.pk)
+
